@@ -1,0 +1,48 @@
+<!-- A two-motor "beam walker": the same idea as the two-wheel robot, but each motor spins a straight beam
+     (fixed at its middle to the motor shaft) instead of a wheel. As a beam turns, its ends plant on the
+     floor one after the other and vault the robot forward. Sized like the Onshape chassis in ../onshape/.
+
+     Units: metres, kilograms. x = forward, y = left, z = up.
+     A positive beam speed swings the lower end of the beam backward, which pushes the robot forward (+x).
+
+     Used by ../mjlab_task/beam_task.py (training) and ../drive.py (python3 drive.py beams/scene.xml). -->
+<mujoco model="beam_robot">
+  <compiler angle="radian" autolimits="true"/>
+
+  <default>
+    <joint damping="0.0005" armature="0.0005"/>   <!-- a little gearbox drag and inertia, like a small DC gearmotor -->
+    <default class="motor_case">
+      <geom type="cylinder" size=".012 .008" euler="1.5708 0 0" rgba=".2 .2 .2 1" mass=".02" contype="0" conaffinity="0"/>
+    </default>
+    <default class="beam">
+      <!-- A capsule from end to end, through the shaft. Its rounded ends are what touch the floor. -->
+      <geom type="capsule" size=".005" fromto="0 0 -.05  0 0 .05" rgba=".9 .4 .1 1" mass=".01" friction=".35 .005 .0001"/>
+    </default>
+  </default>
+
+  <worldbody>
+    <body name="chassis" pos="0 0 0">
+      <!-- The chassis block. It drags on the floor between beam strokes. Friction .35 everywhere: a plastic robot on
+           a wood tabletop (beam_task.py and drive.py set the same value, TABLE_FRICTION). -->
+      <geom name="chassis" type="box" size=".05 .02 .015" rgba=".05 .62 .6 1" mass=".1" friction=".35 .005 .0001"/>
+      <!-- The two motors, one on each side, shafts pointing sideways (y). Look only, no collision. -->
+      <geom class="motor_case" pos="0  .028 0"/>
+      <geom class="motor_case" pos="0 -.028 0"/>
+
+      <body name="left_beam" pos="0 .042 0">
+        <joint name="left_beam" type="hinge" axis="0 1 0"/>
+        <geom class="beam"/>
+      </body>
+      <body name="right_beam" pos="0 -.042 0">
+        <joint name="right_beam" type="hinge" axis="0 1 0"/>
+        <geom class="beam"/>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <!-- Velocity motors for drive.py (ctrl = beam speed in rad/s). beam_task.py replaces these with its own. -->
+    <velocity name="left_beam" joint="left_beam" kv=".05" forcerange="-.15 .15"/>
+    <velocity name="right_beam" joint="right_beam" kv=".05" forcerange="-.15 .15"/>
+  </actuator>
+</mujoco>
