@@ -1,0 +1,4 @@
+setup on Tylers-MacBook-Air.local, python 3.12.7, target twong14@login-prod.pax.tufts.edu, dir ~/mujoco-hpc
+  continuing anyway; the next step is the real test
+Opening SSH connection to twong14@login-prod.pax.tufts.edu. Answer any password / Duo prompt here:
+$ ssh -fN (interactive)

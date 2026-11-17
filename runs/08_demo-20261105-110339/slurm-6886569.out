@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/cluster/home/twong14/mujoco-hpc/runs/08_demo-20261105-110339/08_demo.py", line 33, in <module>
+    model = mujoco.MjModel.from_xml_string(XML)   # build the physics model
+ValueError: Error: size 1 must be positive in geom
+Element name '', id 1, line 12

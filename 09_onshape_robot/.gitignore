@@ -1,6 +1,2 @@
 # Your real keys live in .env. Never commit it.
 .env
-
-# real robot: per-robot calibration and run logs (real_robot/drive_real.py)
-real_robot/calibration.json
-real_robot/run-*.csv

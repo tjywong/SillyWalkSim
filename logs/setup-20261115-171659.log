@@ -1,0 +1,165 @@
+setup on Tylers-MacBook-Air.local, python 3.12.7, target twong14@login-prod.pax.tufts.edu, dir ~/mujoco-hpc
+reusing the SSH connection that is already open
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'echo $(whoami) on $(hostname)'"'"''
+twong14 on login-p02.pax.tufts.edu
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'mkdir -p ~/mujoco-hpc'"'"''
+[exit 0]
+
+$ rsync -az -e 'ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h' /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmpu_jw9f0i/02_check_cluster.sh /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmpu_jw9f0i/03_setup_env.sh /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmpu_jw9f0i/04_test_mujoco.py /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmpu_jw9f0i/05_job.sbatch /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmpu_jw9f0i/06_gpu_job.sbatch /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmpu_jw9f0i/08_demo.py /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmpu_jw9f0i/08_demo.sbatch 'twong14@login-prod.pax.tufts.edu:~/mujoco-hpc/'
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'cd ~/mujoco-hpc && bash 02_check_cluster.sh'"'"''
+== Who/where ==
+user: twong14   host: login-p02.pax.tufts.edu   date: Sun Nov 15 05:17:00 PM EST 2026
+
+== Slurm (the job scheduler) ==
+slurm 26.05.4
+
+== Partitions (queues). Look for 'gpu' if you want GPUs ==
+PARTITION AVAIL  TIMELIMIT   NODES(A/I/O/T) NODELIST
+batch*       up 2-00:00:00      49/24/17/90 pax[001-002,004-006,012-019,027-033,035-046,054-061,069,072-075,078-085,107-109,120,145-149,154-171,188-197]
+gpu          up 2-00:00:00        25/0/0/25 pax[003,007-011,020-026,049-052,063,105-106,142-144,186-187]
+preempt      up 2-00:00:00    103/63/29/195 pax[001-183,186-197]
+
+== Your account / allowed partitions ==
+default||interactive,normal,preempt
+
+== Python on the login node ==
+python3 -> /usr/bin/python3: Python 3.9.21
+python -> /usr/bin/python: Python 3.9.21
+
+== Modules (python / anaconda / cuda / mesa) ==
+   ai-tools/default                       namd/3.0.1-cuda
+   anaconda/2025.06.0                     ncurses/6.5
+   cuda/11.7.0                            odm/gpu
+   cuda/12.9.0                     (D)    odm/3.5.6                    (D)
+   emacs/30.1+x                           openmpi/4.1.8-cuda
+   emacs/30.1                      (D)    openmpi/5.0.7-cuda
+   ffmpeg/7.0.2                           openmpi/5.0.7                (D)
+   gdb/15.2                               python-overlay-builder/0.0.1
+   geopsy/3.4                             python/3.13.2
+   globus-cli/3.36.0                      quantum-espresso/7.4.1-cuda
+   lammps/20240829.2-cuda                 ucx/1.18.0
+   mesa-glu/9.0.2                         vscode-server/4.104.3
+   gromacs/2018.8-plumed              pytorch/2.5.1-cuda12.1-cudnn9
+   gromacs/2023.5-plumed              pytorch/2.6.0-cuda11.8-cudnn9
+   lammps/10Feb2021                   pytorch/2.7.1-cuda12.6-cudnn9
+   lammps/15Jun2023                   pytorch/2.8.0-cuda12.9-cudnn9
+   ollama-python/0.4.7                pytorch/2.11.0-cuda12.6-cudnn9-devel
+   ollama-python/0.5.3                pytorch/2.13.0-cuda12.6-cudnn9       (D)
+   ollama-python/0.6.2         (D)    stable-diffusion-webui/1.10.1        (D)
+   python-gpu/3.12.11-cuda12.8
+   biopython/1.83                       polypolish/0.5.0
+
+== Is MuJoCo (or related) already installed on the cluster? ==
+no MuJoCo module on this cluster (expected). 03_setup_env.sh installs it in your own venv.
+
+== Disk ==
+10.235.106.32:/homedir  164T   17T  147T  11% /cluster/home
+Disk quotas for user twong14 (uid 38996): 
+     Filesystem   space   quota   limit   grace   files   quota   limit   grace
+10.235.106.32:/homedir
+                  7933M  28611M  28611M           59584       0       0        
+
+== Internet from login node (needed for pip install) ==
+ok: pypi reachable
+
+Next, on the cluster:  bash 03_setup_env.sh
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'~/mujoco-env/bin/python -c '"'"'"'"'"'"'"'"'import mujoco, mjlab, imageio_ffmpeg'"'"'"'"'"'"'"'"''"'"''
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'cd ~/mujoco-hpc && source ~/mujoco-env/bin/activate && python 04_test_mujoco.py'"'"''
+host login-p02.pax.tufts.edu  python 3.13.2  slurm job (none: login node)
+PASS import mujoco 3.11.0
+PASS physics: box at rest z=0.100 (expect 0.100)
+     5000 steps in 0.03s = 187,246 steps/s
+PASS render via egl: image (120, 160, 3)
+done
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'cd ~/mujoco-hpc && sbatch --parsable --partition=batch 05_job.sbatch'"'"''
+7245983
+[exit 0]
+submitted job 7245983
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7245983 -o "%T|%R"'"'"''
+PENDING|(None)
+[exit 0]
+  job 7245983: PENDING ((None))
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7245983 -o "%T|%R"'"'"''
+COMPLETING|pax001
+[exit 0]
+  job 7245983: COMPLETING (pax001)
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7245983 -o "%T|%R"'"'"''
+slurm_load_jobs error: Invalid job id specified
+[exit 1]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'sacct -j 7245983 -X -n -P -o State,ExitCode,Elapsed,NodeList'"'"''
+COMPLETED|0:0|00:00:02|pax001
+[exit 0]
+  job 7245983 finished: COMPLETED (exit 0:0, 00:00:02, node pax001)
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'cat ~/mujoco-hpc/mujoco-test-7245983.out'"'"''
+host pax001  python 3.13.2  slurm job 7245983
+PASS import mujoco 3.11.0
+PASS physics: box at rest z=0.100 (expect 0.100)
+     5000 steps in 0.03s = 171,532 steps/s
+PASS render via egl: image (120, 160, 3)
+done
+[exit 0]
+--- ~/mujoco-hpc/mujoco-test-7245983.out ---
+host pax001  python 3.13.2  slurm job 7245983
+PASS import mujoco 3.11.0
+PASS physics: box at rest z=0.100 (expect 0.100)
+     5000 steps in 0.03s = 171,532 steps/s
+PASS render via egl: image (120, 160, 3)
+done
+
+--- end ---
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'cd ~/mujoco-hpc && sbatch --parsable --partition=gpu 06_gpu_job.sbatch'"'"''
+7245984
+[exit 0]
+submitted job 7245984
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7245984 -o "%T|%R"'"'"''
+PENDING|(None)
+[exit 0]
+  job 7245984: PENDING ((None))
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7245984 -o "%T|%R"'"'"''
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'sacct -j 7245984 -X -n -P -o State,ExitCode,Elapsed,NodeList'"'"''
+COMPLETED|0:0|00:00:03|pax026
+[exit 0]
+  job 7245984 finished: COMPLETED (exit 0:0, 00:00:03, node pax026)
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'cat ~/mujoco-hpc/mujoco-gpu-7245984.out'"'"''
+== GPU ==
+GPU 0: NVIDIA L40S (UUID: GPU-535b0236-990a-111d-aebb-df387ee98794)
+host pax026  python 3.13.2  slurm job 7245984
+PASS import mujoco 3.11.0
+PASS physics: box at rest z=0.100 (expect 0.100)
+     5000 steps in 0.02s = 210,638 steps/s
+PASS render via egl: image (120, 160, 3)
+done
+[exit 0]
+--- ~/mujoco-hpc/mujoco-gpu-7245984.out ---
+== GPU ==
+GPU 0: NVIDIA L40S (UUID: GPU-535b0236-990a-111d-aebb-df387ee98794)
+host pax026  python 3.13.2  slurm job 7245984
+PASS import mujoco 3.11.0
+PASS physics: box at rest z=0.100 (expect 0.100)
+     5000 steps in 0.02s = 210,638 steps/s
+PASS render via egl: image (120, 160, 3)
+done
+
+--- end ---

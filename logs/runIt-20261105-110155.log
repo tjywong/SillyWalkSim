@@ -1,0 +1,53 @@
+runIt on Tylers-MacBook-Air.local, python 3.12.7, target twong14@login-prod.pax.tufts.edu, dir ~/mujoco-hpc
+reusing the SSH connection that is already open
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'test -x ~/mujoco-env/bin/python'"'"''
+[exit 0]
+copying to ~/mujoco-hpc/runs/08_demo-20261105-110155
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'mkdir -p ~/mujoco-hpc/runs/08_demo-20261105-110155'"'"''
+[exit 0]
+
+$ rsync -az -e 'ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h' /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmparc593f0/08_demo.py /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmparc593f0/job.sbatch 'twong14@login-prod.pax.tufts.edu:~/mujoco-hpc/runs/08_demo-20261105-110155/'
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'cd ~/mujoco-hpc/runs/08_demo-20261105-110155 && sbatch --parsable  job.sbatch'"'"''
+6886531
+[exit 0]
+submitted job 6886531
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 6886531 -o "%T|%R"'"'"''
+PENDING|(None)
+[exit 0]
+  job 6886531: PENDING ((None))
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 6886531 -o "%T|%R"'"'"''
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'sacct -j 6886531 -X -n -P -o State,ExitCode,Elapsed,NodeList'"'"''
+FAILED|1:0|00:00:00|pax020
+[exit 0]
+  job 6886531 finished: FAILED (exit 1:0, 00:00:00, node pax020)
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'cat ~/mujoco-hpc/runs/08_demo-20261105-110155/slurm-6886531.out'"'"''
+Traceback (most recent call last):
+  File "/cluster/home/twong14/mujoco-hpc/runs/08_demo-20261105-110155/08_demo.py", line 33, in <module>
+    model = mujoco.MjModel.from_xml_string(XML)   # build the physics model
+ValueError: XML Error: invalid keyword: 'cube'
+Element 'geom', line 12
+
+[exit 0]
+--- ~/mujoco-hpc/runs/08_demo-20261105-110155/slurm-6886531.out ---
+Traceback (most recent call last):
+  File "/cluster/home/twong14/mujoco-hpc/runs/08_demo-20261105-110155/08_demo.py", line 33, in <module>
+    model = mujoco.MjModel.from_xml_string(XML)   # build the physics model
+ValueError: XML Error: invalid keyword: 'cube'
+Element 'geom', line 12
+
+
+--- end ---
+
+$ rsync -az -e 'ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h' 'twong14@login-prod.pax.tufts.edu:~/mujoco-hpc/runs/08_demo-20261105-110155/' '/Users/tyler/MuJuCo/Public stuff/mujoco-hpc/runs/08_demo-20261105-110155/'
+[exit 0]
+copied back to /Users/tyler/MuJuCo/Public stuff/mujoco-hpc/runs/08_demo-20261105-110155:
+  slurm-6886531.out  (0 kB)

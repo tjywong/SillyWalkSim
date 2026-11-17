@@ -1,0 +1,255 @@
+runIt on Tylers-MacBook-Air.local, python 3.12.7, target twong14@login-prod.pax.tufts.edu, dir ~/mujoco-hpc
+reusing the SSH connection that is already open
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'test -x ~/mujoco-env/bin/python'"'"''
+[exit 0]
+copying to ~/mujoco-hpc/runs/train-20261116-154524
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'mkdir -p ~/mujoco-hpc/runs/train-20261116-154524'"'"''
+[exit 0]
+
+$ rsync -az -e 'ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h' /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmppwd6dvsa/train.py /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmppwd6dvsa/job.sbatch /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmppwd6dvsa/beam_task.py /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmppwd6dvsa/real_task.py 09_onshape_robot/onshape 'twong14@login-prod.pax.tufts.edu:~/mujoco-hpc/runs/train-20261116-154524/'
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'cd ~/mujoco-hpc/runs/train-20261116-154524 && sbatch --parsable  job.sbatch'"'"''
+7265257
+[exit 0]
+submitted job 7265257
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+PENDING|(None)
+[exit 0]
+  job 7265257: PENDING ((None))
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+PENDING|(None)
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+PENDING|(None)
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+  job 7265257: RUNNING (pax003)
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7265257 -o "%T|%R"'"'"''
+RUNNING|pax003
+[exit 0]

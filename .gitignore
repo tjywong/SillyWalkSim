@@ -1,4 +1,2 @@
-# local Python environment, cluster run results and runIt logs (big, and full of personal paths)
+# local Python environment (rebuild it; see README)
 .venv/
-runs/
-logs/

@@ -1,0 +1,45 @@
+runIt on Tylers-MacBook-Air.local, python 3.12.7, target twong14@login-prod.pax.tufts.edu, dir ~/mujoco-hpc
+reusing the SSH connection that is already open
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'test -x ~/mujoco-env/bin/python'"'"''
+[exit 0]
+copying to ~/mujoco-hpc/runs/08_demo-20261105-110502
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'mkdir -p ~/mujoco-hpc/runs/08_demo-20261105-110502'"'"''
+[exit 0]
+
+$ rsync -az -e 'ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h' /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmpj3pa79dx/08_demo.py /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmpj3pa79dx/job.sbatch 'twong14@login-prod.pax.tufts.edu:~/mujoco-hpc/runs/08_demo-20261105-110502/'
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'cd ~/mujoco-hpc/runs/08_demo-20261105-110502 && sbatch --parsable  job.sbatch'"'"''
+6886597
+[exit 0]
+submitted job 6886597
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 6886597 -o "%T|%R"'"'"''
+RUNNING|pax020
+[exit 0]
+  job 6886597: RUNNING (pax020)
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 6886597 -o "%T|%R"'"'"''
+slurm_load_jobs error: Invalid job id specified
+[exit 1]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'sacct -j 6886597 -X -n -P -o State,ExitCode,Elapsed,NodeList'"'"''
+COMPLETED|0:0|00:00:02|pax020
+[exit 0]
+  job 6886597 finished: COMPLETED (exit 0:0, 00:00:02, node pax020)
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'cat ~/mujoco-hpc/runs/08_demo-20261105-110502/slurm-6886597.out'"'"''
+wrote bounce.mp4: 121 frames, 4 s of simulation
+[exit 0]
+--- ~/mujoco-hpc/runs/08_demo-20261105-110502/slurm-6886597.out ---
+wrote bounce.mp4: 121 frames, 4 s of simulation
+
+--- end ---
+
+$ rsync -az -e 'ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h' 'twong14@login-prod.pax.tufts.edu:~/mujoco-hpc/runs/08_demo-20261105-110502/' '/Users/tyler/MuJuCo/Public stuff/mujoco-hpc/runs/08_demo-20261105-110502/'
+[exit 0]
+copied back to /Users/tyler/MuJuCo/Public stuff/mujoco-hpc/runs/08_demo-20261105-110502:
+  bounce.mp4  (22 kB)
+  slurm-6886597.out  (0 kB)

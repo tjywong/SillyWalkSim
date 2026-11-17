@@ -1,0 +1,52 @@
+runIt on Tylers-MacBook-Air.local, python 3.12.7, target twong14@login-prod.pax.tufts.edu, dir ~/mujoco-hpc
+reusing the SSH connection that is already open
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'test -x ~/mujoco-env/bin/python'"'"''
+[exit 0]
+copying to ~/mujoco-hpc/runs/08_demo-20261105-110339
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'mkdir -p ~/mujoco-hpc/runs/08_demo-20261105-110339'"'"''
+[exit 0]
+
+$ rsync -az -e 'ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h' /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmpvqckgayf/08_demo.py /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmpvqckgayf/job.sbatch 'twong14@login-prod.pax.tufts.edu:~/mujoco-hpc/runs/08_demo-20261105-110339/'
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'cd ~/mujoco-hpc/runs/08_demo-20261105-110339 && sbatch --parsable  job.sbatch'"'"''
+6886569
+[exit 0]
+submitted job 6886569
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 6886569 -o "%T|%R"'"'"''
+PENDING|(None)
+[exit 0]
+  job 6886569: PENDING ((None))
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 6886569 -o "%T|%R"'"'"''
+slurm_load_jobs error: Invalid job id specified
+[exit 1]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'sacct -j 6886569 -X -n -P -o State,ExitCode,Elapsed,NodeList'"'"''
+FAILED|1:0|00:00:00|pax020
+[exit 0]
+  job 6886569 finished: FAILED (exit 1:0, 00:00:00, node pax020)
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'cat ~/mujoco-hpc/runs/08_demo-20261105-110339/slurm-6886569.out'"'"''
+Traceback (most recent call last):
+  File "/cluster/home/twong14/mujoco-hpc/runs/08_demo-20261105-110339/08_demo.py", line 33, in <module>
+    model = mujoco.MjModel.from_xml_string(XML)   # build the physics model
+ValueError: Error: size 1 must be positive in geom
+Element name '', id 1, line 12
+[exit 0]
+--- ~/mujoco-hpc/runs/08_demo-20261105-110339/slurm-6886569.out ---
+Traceback (most recent call last):
+  File "/cluster/home/twong14/mujoco-hpc/runs/08_demo-20261105-110339/08_demo.py", line 33, in <module>
+    model = mujoco.MjModel.from_xml_string(XML)   # build the physics model
+ValueError: Error: size 1 must be positive in geom
+Element name '', id 1, line 12
+
+--- end ---
+
+$ rsync -az -e 'ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h' 'twong14@login-prod.pax.tufts.edu:~/mujoco-hpc/runs/08_demo-20261105-110339/' '/Users/tyler/MuJuCo/Public stuff/mujoco-hpc/runs/08_demo-20261105-110339/'
+[exit 0]
+copied back to /Users/tyler/MuJuCo/Public stuff/mujoco-hpc/runs/08_demo-20261105-110339:
+  slurm-6886569.out  (0 kB)

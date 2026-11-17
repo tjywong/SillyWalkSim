@@ -1,0 +1,411 @@
+runIt on Tylers-MacBook-Air.local, python 3.12.7, target twong14@login-prod.pax.tufts.edu, dir ~/mujoco-hpc
+reusing the SSH connection that is already open
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'test -x ~/mujoco-env/bin/python'"'"''
+[exit 0]
+copying to ~/mujoco-hpc/runs/make_video-20261115-213208
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'mkdir -p ~/mujoco-hpc/runs/make_video-20261115-213208'"'"''
+[exit 0]
+
+$ rsync -az -e 'ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h' /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmpyyxn3pk0/make_video.py /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmpyyxn3pk0/job.sbatch /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmpyyxn3pk0/beam_task.py 09_onshape_robot/onshape runs/train-20261115-205306/logs/rsl_rl/onshape_beam_drive_straight/2026-11-15_20-53-38/model_999.pt 'twong14@login-prod.pax.tufts.edu:~/mujoco-hpc/runs/make_video-20261115-213208/'
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'cd ~/mujoco-hpc/runs/make_video-20261115-213208 && sbatch --parsable  job.sbatch'"'"''
+7248274
+[exit 0]
+submitted job 7248274
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7248274 -o "%T|%R"'"'"''
+PENDING|(None)
+[exit 0]
+  job 7248274: PENDING ((None))
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7248274 -o "%T|%R"'"'"''
+RUNNING|pax142
+[exit 0]
+  job 7248274: RUNNING (pax142)
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7248274 -o "%T|%R"'"'"''
+RUNNING|pax142
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7248274 -o "%T|%R"'"'"''
+RUNNING|pax142
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7248274 -o "%T|%R"'"'"''
+RUNNING|pax142
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'squeue -h -j 7248274 -o "%T|%R"'"'"''
+[exit 0]
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'sacct -j 7248274 -X -n -P -o State,ExitCode,Elapsed,NodeList'"'"''
+COMPLETED|0:0|00:00:49|pax142
+[exit 0]
+  job 7248274 finished: COMPLETED (exit 0:0, 00:00:49, node pax142)
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'cat ~/mujoco-hpc/runs/make_video-20261115-213208/slurm-7248274.out'"'"''
+Warp 1.14.0 initialized:
+   CUDA Toolkit 12.9, Driver 12.9
+   Devices:
+     "cpu"      : "x86_64"
+     "cuda:0"   : "NVIDIA A100-PCIE-40GB" (39 GiB, sm_80, mempool enabled)
+   Kernel cache:
+     /cluster/home/twong14/.cache/warp/1.14.0
+Module mujoco_warp._src.smooth e597d07 load on device 'cuda:0' took 117.01 ms  (cached)
+Module _nxn_broadphase__locals__kernel_df6640ed df6640e load on device 'cuda:0' took 15.77 ms  (cached)
+Module ccd_kernel_builder__locals__ccd_kernel_433934c2 433934c load on device 'cuda:0' took 35.40 ms  (cached)
+Module ccd_kernel_builder__locals__ccd_kernel_433934c2 62e8807 load on device 'cuda:0' took 32.16 ms  (cached)
+Module _primitive_narrowphase__locals__primitive_narrowphase_d401f8a1 d401f8a load on device 'cuda:0' took 18.71 ms  (cached)
+Module mujoco_warp._src.constraint 880bd7f load on device 'cuda:0' took 14.57 ms  (cached)
+Module _friction_dof__locals__kernel_3c14efda 3c14efd load on device 'cuda:0' took 16.96 ms  (cached)
+Module _efc_contact_init__locals__kernel_07a590e0 07a590e load on device 'cuda:0' took 15.92 ms  (cached)
+Module _efc_contact_jac_dense__locals__kernel_5e1af9f9 1d73624 load on device 'cuda:0' took 15.97 ms  (cached)
+Module _efc_contact_update__locals__kernel_8aad7bfd 8aad7bf load on device 'cuda:0' took 15.75 ms  (cached)
+Module mujoco_warp._src.forward 687ddb7 load on device 'cuda:0' took 19.67 ms  (cached)
+Module mujoco_warp._src.passive 8ff6993 load on device 'cuda:0' took 22.69 ms  (cached)
+Module mujoco_warp._src.forward 2190340 load on device 'cuda:0' took 17.95 ms  (cached)
+Module _qfrc_smooth__locals__kernel_6eb3d958 6eb3d95 load on device 'cuda:0' took 14.63 ms  (cached)
+Module mujoco_warp._src.support d1e71d9 load on device 'cuda:0' took 16.11 ms  (cached)
+Module _tile_cholesky_factorize_solve_block__locals__kernel_96fe77a4 b3c84d4 load on device 'cuda:0' took 81.79 ms  (cached)
+Module _solve_init_dof__locals__kernel_99a497d1 99a497d load on device 'cuda:0' took 14.28 ms  (cached)
+Module mujoco_warp._src.solver 245b5b3 load on device 'cuda:0' took 27.10 ms  (cached)
+Module _solve_init_jaref_kernel__locals__kernel_441f2857 441f285 load on device 'cuda:0' took 13.29 ms  (cached)
+Module mul_m_kernel__locals___mul_m_fd2186c4 fd2186c load on device 'cuda:0' took 13.54 ms  (cached)
+Module _update_constraint_efc__locals__kernel_4af8f110 4af8f11 load on device 'cuda:0' took 12.07 ms  (cached)
+Module _update_constraint_init_qfrc_constraint_dense__locals__kernel_391cb5b4 391cb5b load on device 'cuda:0' took 14.09 ms  (cached)
+Module _update_gradient_zero_grad_dot__locals__kernel_cb780630 cb78063 load on device 'cuda:0' took 14.00 ms  (cached)
+Module _update_gradient_grad__locals__kernel_0cbf4927 0cbf492 load on device 'cuda:0' took 14.69 ms  (cached)
+Module _update_gradient_JTDAJ_dense_tiled__locals__kernel_24f1c315 1861c63 load on device 'cuda:0' took 17.09 ms  (cached)
+Module _update_gradient_cholesky__locals__kernel_72d6533b 9874e5a load on device 'cuda:0' took 78.26 ms  (cached)
+Module _linesearch_iterative_kernel__locals__kernel_fb5b8694 726f286 load on device 'cuda:0' took 14.24 ms  (cached)
+Module _update_constraint_efc__locals__kernel_e30beb1f e30beb1 load on device 'cuda:0' took 15.37 ms  (cached)
+Module _update_constraint_init_qfrc_constraint_dense__locals__kernel_5ba72bac 5ba72ba load on device 'cuda:0' took 13.06 ms  (cached)
+Module _update_gradient_zero_grad_dot__locals__kernel_f708ee5f f708ee5 load on device 'cuda:0' took 12.95 ms  (cached)
+Module _update_gradient_grad__locals__kernel_cb93df65 cb93df6 load on device 'cuda:0' took 14.33 ms  (cached)
+Module _update_gradient_cholesky__locals__kernel_dfa18736 66fe7ce load on device 'cuda:0' took 85.18 ms  (cached)
+Module mujoco_warp._src.sensor 42e0a24 load on device 'cuda:0' took 22.72 ms  (cached)
+Module mujoco_warp._src.derivative e770e28 load on device 'cuda:0' took 19.50 ms  (cached)
+Module _next_time_builder__locals___next_time_95ad6d7a 95ad6d7 load on device 'cuda:0' took 16.46 ms  (cached)
+Module reset_data__locals__reset_xfrc_applied_03030511 0303051 load on device 'cuda:0' took 15.24 ms  (cached)
+Module reset_data__locals__reset_M_631075dd 631075d load on device 'cuda:0' took 15.56 ms  (cached)
+Module reset_data__locals__reset_mocap_6513201c 6513201 load on device 'cuda:0' took 15.24 ms  (cached)
+Module reset_data__locals__reset_contact_5c08f689 5c08f68 load on device 'cuda:0' took 14.59 ms  (cached)
+Module reset_data__locals__reset_sleep_50b990da 50b990d load on device 'cuda:0' took 12.41 ms  (cached)
+Module reset_data__locals__reset_nworld_69a10925 69a1092 load on device 'cuda:0' took 16.76 ms  (cached)
+
++---------------------------------+
+|         Base Environment        |
++------------------------+--------+
+| Property               | Value  |
++------------------------+--------+
+| Number of environments | 1      |
+| Environment device     | cuda:0 |
+| Environment seed       | None   |
+| Physics step-size      | 0.002  |
+| Environment step-size  | 0.02   |
++------------------------+--------+
+
+[INFO] <EventManager> contains 1 active terms.
++-------------------------------------+
+| Active Event Terms in Mode: 'reset' |
++------------+------------------------+
+|   Index    | Name                   |
++------------+------------------------+
+|     0      | reset_pose             |
+|     1      | reset_beams            |
++------------+------------------------+
+
+[INFO] <NullCommandManager> (inactive)
+[INFO] <ActionManager> contains 1 active terms.
++--------------------------------+
+| Active Action Terms (shape: 2) |
++--------+--------+--------------+
+| Index  | Name   |    Dimension |
++--------+--------+--------------+
+|   0    | beams  |            2 |
++--------+--------+--------------+
+
+[INFO] <ObservationManager> contains 2 groups.
++-----------------------------------------------------------+
+| Active Observation Terms in Group: 'actor' (shape: (20,)) |
++------------+-------------------------------+--------------+
+|   Index    | Name                          |    Shape     |
++------------+-------------------------------+--------------+
+|     0      | lin_vel                       |     (3,)     |
+|     1      | ang_vel                       |     (3,)     |
+|     2      | gravity                       |     (3,)     |
+|     3      | heading_offset                |     (3,)     |
+|     4      | beam_angle                    |     (4,)     |
+|     5      | beam_vel                      |     (2,)     |
+|     6      | last_action                   |     (2,)     |
++------------+-------------------------------+--------------+
++------------------------------------------------------------+
+| Active Observation Terms in Group: 'critic' (shape: (20,)) |
++------------+--------------------------------+--------------+
+|   Index    | Name                           |    Shape     |
++------------+--------------------------------+--------------+
+|     0      | lin_vel                        |     (3,)     |
+|     1      | ang_vel                        |     (3,)     |
+|     2      | gravity                        |     (3,)     |
+|     3      | heading_offset                 |     (3,)     |
+|     4      | beam_angle                     |     (4,)     |
+|     5      | beam_vel                       |     (2,)     |
+|     6      | last_action                    |     (2,)     |
++------------+--------------------------------+--------------+
+
+[INFO] <TerminationManager> contains 3 active terms.
++-----------------------------+
+|   Active Termination Terms  |
++-------+----------+----------+
+| Index | Name     | Time Out |
++-------+----------+----------+
+|   0   | time_out |   True   |
+|   1   | flipped  |  False   |
+|   2   | off_line |  False   |
++-------+----------+----------+
+
+[INFO] <RewardManager> contains 5 active terms.
++--------------------------------+
+|      Active Reward Terms       |
++-------+---------------+--------+
+| Index | Name          | Weight |
++-------+---------------+--------+
+|   0   | forward_speed |    1.0 |
+|   1   | stay_on_line  |    0.5 |
+|   2   | face_forward  |    0.5 |
+|   3   | stay_upright  |    0.5 |
+|   4   | action_rate   |  -0.02 |
++-------+---------------+--------+
+
+[INFO] <NullCurriculumManager> (inactive)
+[INFO] <NullMetricsManager> (inactive)
+[INFO] <NullRecorderManager> (inactive)
+--------------------------------------------------------------------------------
+Resolved observation sets: 
+	 actor :  ('actor',)
+	 critic :  ('critic',)
+--------------------------------------------------------------------------------
+Actor Model: MLPModel(
+  (obs_normalizer): EmpiricalNormalization()
+  (distribution): GaussianDistribution()
+  (mlp): MLP(
+    (0): Linear(in_features=20, out_features=128, bias=True)
+    (1): ELU(alpha=1.0)
+    (2): Linear(in_features=128, out_features=128, bias=True)
+    (3): ELU(alpha=1.0)
+    (4): Linear(in_features=128, out_features=2, bias=True)
+  )
+)
+Critic Model: MLPModel(
+  (obs_normalizer): EmpiricalNormalization()
+  (mlp): MLP(
+    (0): Linear(in_features=20, out_features=128, bias=True)
+    (1): ELU(alpha=1.0)
+    (2): Linear(in_features=128, out_features=128, bias=True)
+    (3): ELU(alpha=1.0)
+    (4): Linear(in_features=128, out_features=1, bias=True)
+  )
+)
+  second   x (m)   y (m)   heading (deg)   speed (m/s)
+      1     0.15    0.00        -11.2          0.16
+      2     0.30   -0.01          7.2          0.16
+      3     0.45    0.01         -0.4          0.17
+      4     0.60   -0.00          0.0          0.17
+      5     0.75    0.01          1.5          0.15
+      6     0.90   -0.00         -4.0          0.17
+      7     1.05    0.00         13.2          0.15
+      8     1.20   -0.00        -12.4          0.15
+      9     1.35    0.01         11.1          0.12
+     10     1.51    0.00        -10.2          0.13
+wrote the video (an .mp4 next to this script)
+[exit 0]
+--- ~/mujoco-hpc/runs/make_video-20261115-213208/slurm-7248274.out ---
+Warp 1.14.0 initialized:
+   CUDA Toolkit 12.9, Driver 12.9
+   Devices:
+     "cpu"      : "x86_64"
+     "cuda:0"   : "NVIDIA A100-PCIE-40GB" (39 GiB, sm_80, mempool enabled)
+   Kernel cache:
+     /cluster/home/twong14/.cache/warp/1.14.0
+Module mujoco_warp._src.smooth e597d07 load on device 'cuda:0' took 117.01 ms  (cached)
+Module _nxn_broadphase__locals__kernel_df6640ed df6640e load on device 'cuda:0' took 15.77 ms  (cached)
+Module ccd_kernel_builder__locals__ccd_kernel_433934c2 433934c load on device 'cuda:0' took 35.40 ms  (cached)
+Module ccd_kernel_builder__locals__ccd_kernel_433934c2 62e8807 load on device 'cuda:0' took 32.16 ms  (cached)
+Module _primitive_narrowphase__locals__primitive_narrowphase_d401f8a1 d401f8a load on device 'cuda:0' took 18.71 ms  (cached)
+Module mujoco_warp._src.constraint 880bd7f load on device 'cuda:0' took 14.57 ms  (cached)
+Module _friction_dof__locals__kernel_3c14efda 3c14efd load on device 'cuda:0' took 16.96 ms  (cached)
+Module _efc_contact_init__locals__kernel_07a590e0 07a590e load on device 'cuda:0' took 15.92 ms  (cached)
+Module _efc_contact_jac_dense__locals__kernel_5e1af9f9 1d73624 load on device 'cuda:0' took 15.97 ms  (cached)
+Module _efc_contact_update__locals__kernel_8aad7bfd 8aad7bf load on device 'cuda:0' took 15.75 ms  (cached)
+Module mujoco_warp._src.forward 687ddb7 load on device 'cuda:0' took 19.67 ms  (cached)
+Module mujoco_warp._src.passive 8ff6993 load on device 'cuda:0' took 22.69 ms  (cached)
+Module mujoco_warp._src.forward 2190340 load on device 'cuda:0' took 17.95 ms  (cached)
+Module _qfrc_smooth__locals__kernel_6eb3d958 6eb3d95 load on device 'cuda:0' took 14.63 ms  (cached)
+Module mujoco_warp._src.support d1e71d9 load on device 'cuda:0' took 16.11 ms  (cached)
+Module _tile_cholesky_factorize_solve_block__locals__kernel_96fe77a4 b3c84d4 load on device 'cuda:0' took 81.79 ms  (cached)
+Module _solve_init_dof__locals__kernel_99a497d1 99a497d load on device 'cuda:0' took 14.28 ms  (cached)
+Module mujoco_warp._src.solver 245b5b3 load on device 'cuda:0' took 27.10 ms  (cached)
+Module _solve_init_jaref_kernel__locals__kernel_441f2857 441f285 load on device 'cuda:0' took 13.29 ms  (cached)
+Module mul_m_kernel__locals___mul_m_fd2186c4 fd2186c load on device 'cuda:0' took 13.54 ms  (cached)
+Module _update_constraint_efc__locals__kernel_4af8f110 4af8f11 load on device 'cuda:0' took 12.07 ms  (cached)
+Module _update_constraint_init_qfrc_constraint_dense__locals__kernel_391cb5b4 391cb5b load on device 'cuda:0' took 14.09 ms  (cached)
+Module _update_gradient_zero_grad_dot__locals__kernel_cb780630 cb78063 load on device 'cuda:0' took 14.00 ms  (cached)
+Module _update_gradient_grad__locals__kernel_0cbf4927 0cbf492 load on device 'cuda:0' took 14.69 ms  (cached)
+Module _update_gradient_JTDAJ_dense_tiled__locals__kernel_24f1c315 1861c63 load on device 'cuda:0' took 17.09 ms  (cached)
+Module _update_gradient_cholesky__locals__kernel_72d6533b 9874e5a load on device 'cuda:0' took 78.26 ms  (cached)
+Module _linesearch_iterative_kernel__locals__kernel_fb5b8694 726f286 load on device 'cuda:0' took 14.24 ms  (cached)
+Module _update_constraint_efc__locals__kernel_e30beb1f e30beb1 load on device 'cuda:0' took 15.37 ms  (cached)
+Module _update_constraint_init_qfrc_constraint_dense__locals__kernel_5ba72bac 5ba72ba load on device 'cuda:0' took 13.06 ms  (cached)
+Module _update_gradient_zero_grad_dot__locals__kernel_f708ee5f f708ee5 load on device 'cuda:0' took 12.95 ms  (cached)
+Module _update_gradient_grad__locals__kernel_cb93df65 cb93df6 load on device 'cuda:0' took 14.33 ms  (cached)
+Module _update_gradient_cholesky__locals__kernel_dfa18736 66fe7ce load on device 'cuda:0' took 85.18 ms  (cached)
+Module mujoco_warp._src.sensor 42e0a24 load on device 'cuda:0' took 22.72 ms  (cached)
+Module mujoco_warp._src.derivative e770e28 load on device 'cuda:0' took 19.50 ms  (cached)
+Module _next_time_builder__locals___next_time_95ad6d7a 95ad6d7 load on device 'cuda:0' took 16.46 ms  (cached)
+Module reset_data__locals__reset_xfrc_applied_03030511 0303051 load on device 'cuda:0' took 15.24 ms  (cached)
+Module reset_data__locals__reset_M_631075dd 631075d load on device 'cuda:0' took 15.56 ms  (cached)
+Module reset_data__locals__reset_mocap_6513201c 6513201 load on device 'cuda:0' took 15.24 ms  (cached)
+Module reset_data__locals__reset_contact_5c08f689 5c08f68 load on device 'cuda:0' took 14.59 ms  (cached)
+Module reset_data__locals__reset_sleep_50b990da 50b990d load on device 'cuda:0' took 12.41 ms  (cached)
+Module reset_data__locals__reset_nworld_69a10925 69a1092 load on device 'cuda:0' took 16.76 ms  (cached)
+
++---------------------------------+
+|         Base Environment        |
++------------------------+--------+
+| Property               | Value  |
++------------------------+--------+
+| Number of environments | 1      |
+| Environment device     | cuda:0 |
+| Environment seed       | None   |
+| Physics step-size      | 0.002  |
+| Environment step-size  | 0.02   |
++------------------------+--------+
+
+[INFO] <EventManager> contains 1 active terms.
++-------------------------------------+
+| Active Event Terms in Mode: 'reset' |
++------------+------------------------+
+|   Index    | Name                   |
++------------+------------------------+
+|     0      | reset_pose             |
+|     1      | reset_beams            |
++------------+------------------------+
+
+[INFO] <NullCommandManager> (inactive)
+[INFO] <ActionManager> contains 1 active terms.
++--------------------------------+
+| Active Action Terms (shape: 2) |
++--------+--------+--------------+
+| Index  | Name   |    Dimension |
++--------+--------+--------------+
+|   0    | beams  |            2 |
++--------+--------+--------------+
+
+[INFO] <ObservationManager> contains 2 groups.
++-----------------------------------------------------------+
+| Active Observation Terms in Group: 'actor' (shape: (20,)) |
++------------+-------------------------------+--------------+
+|   Index    | Name                          |    Shape     |
++------------+-------------------------------+--------------+
+|     0      | lin_vel                       |     (3,)     |
+|     1      | ang_vel                       |     (3,)     |
+|     2      | gravity                       |     (3,)     |
+|     3      | heading_offset                |     (3,)     |
+|     4      | beam_angle                    |     (4,)     |
+|     5      | beam_vel                      |     (2,)     |
+|     6      | last_action                   |     (2,)     |
++------------+-------------------------------+--------------+
++------------------------------------------------------------+
+| Active Observation Terms in Group: 'critic' (shape: (20,)) |
++------------+--------------------------------+--------------+
+|   Index    | Name                           |    Shape     |
++------------+--------------------------------+--------------+
+|     0      | lin_vel                        |     (3,)     |
+|     1      | ang_vel                        |     (3,)     |
+|     2      | gravity                        |     (3,)     |
+|     3      | heading_offset                 |     (3,)     |
+|     4      | beam_angle                     |     (4,)     |
+|     5      | beam_vel                       |     (2,)     |
+|     6      | last_action                    |     (2,)     |
++------------+--------------------------------+--------------+
+
+[INFO] <TerminationManager> contains 3 active terms.
++-----------------------------+
+|   Active Termination Terms  |
++-------+----------+----------+
+| Index | Name     | Time Out |
++-------+----------+----------+
+|   0   | time_out |   True   |
+|   1   | flipped  |  False   |
+|   2   | off_line |  False   |
++-------+----------+----------+
+
+[INFO] <RewardManager> contains 5 active terms.
++--------------------------------+
+|      Active Reward Terms       |
++-------+---------------+--------+
+| Index | Name          | Weight |
++-------+---------------+--------+
+|   0   | forward_speed |    1.0 |
+|   1   | stay_on_line  |    0.5 |
+|   2   | face_forward  |    0.5 |
+|   3   | stay_upright  |    0.5 |
+|   4   | action_rate   |  -0.02 |
++-------+---------------+--------+
+
+[INFO] <NullCurriculumManager> (inactive)
+[INFO] <NullMetricsManager> (inactive)
+[INFO] <NullRecorderManager> (inactive)
+--------------------------------------------------------------------------------
+Resolved observation sets: 
+	 actor :  ('actor',)
+	 critic :  ('critic',)
+--------------------------------------------------------------------------------
+Actor Model: MLPModel(
+  (obs_normalizer): EmpiricalNormalization()
+  (distribution): GaussianDistribution()
+  (mlp): MLP(
+    (0): Linear(in_features=20, out_features=128, bias=True)
+    (1): ELU(alpha=1.0)
+    (2): Linear(in_features=128, out_features=128, bias=True)
+    (3): ELU(alpha=1.0)
+    (4): Linear(in_features=128, out_features=2, bias=True)
+  )
+)
+Critic Model: MLPModel(
+  (obs_normalizer): EmpiricalNormalization()
+  (mlp): MLP(
+    (0): Linear(in_features=20, out_features=128, bias=True)
+    (1): ELU(alpha=1.0)
+    (2): Linear(in_features=128, out_features=128, bias=True)
+    (3): ELU(alpha=1.0)
+    (4): Linear(in_features=128, out_features=1, bias=True)
+  )
+)
+  second   x (m)   y (m)   heading (deg)   speed (m/s)
+      1     0.15    0.00        -11.2          0.16
+      2     0.30   -0.01          7.2          0.16
+      3     0.45    0.01         -0.4          0.17
+      4     0.60   -0.00          0.0          0.17
+      5     0.75    0.01          1.5          0.15
+      6     0.90   -0.00         -4.0          0.17
+      7     1.05    0.00         13.2          0.15
+      8     1.20   -0.00        -12.4          0.15
+      9     1.35    0.01         11.1          0.12
+     10     1.51    0.00        -10.2          0.13
+wrote the video (an .mp4 next to this script)
+
+--- end ---
+
+$ rsync -az -e 'ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h' 'twong14@login-prod.pax.tufts.edu:~/mujoco-hpc/runs/make_video-20261115-213208/' '/Users/tyler/MuJuCo/Public stuff/mujoco-hpc/runs/make_video-20261115-213208/'
+[exit 0]
+copied back to /Users/tyler/MuJuCo/Public stuff/mujoco-hpc/runs/make_video-20261115-213208:
+  __pycache__  (0 kB)
+  beam_task.py  (14 kB)
+  model_999.pt  (485 kB)
+  onshape  (0 kB)
+  rl-video-step-0.mp4  (2007 kB)
+  slurm-7248274.out  (10 kB)

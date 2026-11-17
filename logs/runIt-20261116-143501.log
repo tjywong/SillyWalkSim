@@ -1,0 +1,14 @@
+runIt on Tylers-MacBook-Air.local, python 3.12.7, target twong14@login-prod.pax.tufts.edu, dir ~/mujoco-hpc
+reusing the SSH connection that is already open
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'test -x ~/mujoco-env/bin/python'"'"''
+[exit 0]
+copying to ~/mujoco-hpc/runs/make_video-20261116-143501
+
+$ ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h twong14@login-prod.pax.tufts.edu 'bash -lc '"'"'mkdir -p ~/mujoco-hpc/runs/make_video-20261116-143501'"'"''
+[exit 0]
+
+$ rsync -az -e 'ssh -o ControlMaster=no -o BatchMode=yes -o ControlPath=/Users/tyler/.ssh/sockets/%r@%h' /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmpo1ryjep5/make_video.py /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmpo1ryjep5/job.sbatch /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmpo1ryjep5/beam_task.py /var/folders/92/g35ps_g503v3_21nx1vq_lph0000gq/T/tmpo1ryjep5/real_task.py 09_onshape_robot/onshape RUN/model_1499.pt 'twong14@login-prod.pax.tufts.edu:~/mujoco-hpc/runs/make_video-20261116-143501/'
+rsync(48310): error: RUN/model_1499.pt: (l)stat: No such file or directory
+[exit 23]
+FAILED: command failed (exit 23): rsync -az -e ...
